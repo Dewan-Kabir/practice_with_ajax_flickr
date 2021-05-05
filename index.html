@@ -55,26 +55,24 @@
 
 
 async function fetchText() {
-    let response = await fetch('https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs',{
-                        headers: new Headers({
-                            'Access-Control-Allow-Origin' : '*',
-                            'Content-Type' : 'application/javascript'
-                        })});
-    let data = await response.text();
-    var obj = JSON.parse(data);
-    console.log(data);
 
-    var card_data = document.getElementById('row_for_flickr');
-    
 
-    for (var i = 0; i < obj.length; i++) {
-        card_data.innerHTML = obj[i].media.m;
+
+    axios.get('https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs')
+  .then((response) => {
+    // handle success
+    console.log(response);
+  })
+  .catch((error) => {
+    // handle error
+    console.log(error);
+  })
+
+
 
 
 
 }
-}
-
 
 
 
