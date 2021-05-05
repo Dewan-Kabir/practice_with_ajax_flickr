@@ -57,13 +57,14 @@
 async function fetchText() {
 
     
-    /**
-    let url = `https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs`;
+    
+    let url = `http(s)://thingproxy.freeboard.io/fetch/https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs`;
     const axiosResponse = await axios.get(url);
 
     console.log(axiosResponse.data);
-**/
 
+
+/**
     axios.get('http(s)://thingproxy.freeboard.io/fetch/https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs' , {
 	headers: {
 	  'Access-Control-Allow-Origin': '*',
@@ -80,7 +81,7 @@ async function fetchText() {
 
 
 
-
+**/
 
 }
 
