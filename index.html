@@ -13,7 +13,7 @@
   </head>
   <body>
     
-    <div id="div1"><h2>AJAX Practice Homework -Dewan Kabir</h2></div>
+    <div id="div1"><h2>AJAX Flickr -Dewan Kabir</h2></div>
     <button class="btn btn-primary" onclick="handleButtonClick()">Click to see some dog pictures from Flickr</button>
 
 
@@ -70,7 +70,7 @@ function handleButtonClick() {
   $.ajax({
     url: 'https://api.flickr.com/services/feeds/photos_public.gne',
     dataType: 'jsonp',
-    data: { "tags": "dog", "format": "json" }
+    data: { "tags": "dogs", "format": "json" }
   });
 }
 
