@@ -55,7 +55,11 @@
 
 
 async function fetchText() {
-    let response = await fetch('https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs');
+    let response = await fetch('https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs',{
+                        headers: new Headers({
+                            'Access-Control-Allow-Origin' : '*',
+                            'Content-Type' : 'application/javascript'
+                        })});
     let data = await response.text();
     var obj = JSON.parse(data);
     console.log(data);
