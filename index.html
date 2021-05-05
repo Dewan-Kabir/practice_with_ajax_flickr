@@ -14,7 +14,7 @@
   <body>
     
     <div id="div1"><h2>AJAX Practice Homework -Dewan Kabir</h2></div>
-    <button class="btn btn-primary" onclick="getDogsFlickr()">Click to see some dog pictures from Flickr</button>
+    <button class="btn btn-primary" onclick="handleButtonClick()">Click to see some dog pictures from Flickr</button>
 
 
     <section>
@@ -55,21 +55,32 @@
 
 
 
-
-
-    
-
-    function getDogsFlickr(json) {
+function flickrDogImages(json) {
+  console.log(json);
+  
   $.each(json.items, function(i, item) {
     $("<img />").attr("src", item.media.m).appendTo("#row_for_flickr");
   });
 };
 
-$.ajax({
-  url: 'https://api.flickr.com/services/feeds/photos_public.gne',
-  dataType: 'jsonp',
-  data: { "tags": "dog", "format": "json" }
-});
+
+function handleButtonClick() {
+  
+  
+  $.ajax({
+    url: 'https://api.flickr.com/services/feeds/photos_public.gne',
+    dataType: 'jsonp',
+    data: { "tags": "dog", "format": "json" }
+  });
+}
+
+
+
+
+
+
+
+
 
 
 
