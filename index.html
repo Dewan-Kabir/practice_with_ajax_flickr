@@ -13,7 +13,7 @@
   <body>
     
     <div id="div1"><h2>AJAX Practice Homework -Dewan Kabir</h2></div>
-    <button class="btn btn-primary" onclick="fetchText()">Click to see some dog pictures from Flickr</button>
+    <button class="btn btn-primary" onclick="getDogsFlickr()">Click to see some dog pictures from Flickr</button>
 
 
     <section>
@@ -54,36 +54,30 @@
 
 
 
-async function fetchText() {
+
 
     
+
+    function getDogsFlickr(json) {
+  $.each(json.items, function(i, item) {
+    $("<img />").attr("src", item.media.m).appendTo("#row_for_flickr");
+  });
+};
+
+$.ajax({
+  url: 'https://api.flickr.com/services/feeds/photos_public.gne',
+  dataType: 'jsonp',
+  data: { "tags": "dog", "format": "json" }
+});
+
+
+
     
-    let url = `http(s)://thingproxy.freeboard.io/fetch/https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json`;
-    const axiosResponse = await axios.get(url);
-
-    console.log(axiosResponse.data);
-
-
-/**
-    axios.get('http(s)://thingproxy.freeboard.io/fetch/https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?&format=json&tags=dogs' , {
-	headers: {
-	  'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/javascript'
-	}})
-  .then((response) => {
-    // handle success
-    console.log(response);
-  })
-  .catch((error) => {
-    // handle error
-    console.log(error);
-  })
+   
 
 
 
-**/
 
-}
 
 
 
