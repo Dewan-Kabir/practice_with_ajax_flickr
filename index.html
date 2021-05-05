@@ -15,7 +15,7 @@
     
     <div id="div1"><h2>AJAX Flickr -Dewan Kabir</h2></div>
     <button class="btn btn-primary" onclick="handleButtonClick()">Click to see some dog pictures from Flickr</button>
-
+    <button id="run" type="button" class="pure-button pure-button-primary">Run</button>
 
     <section>
         <div class ="container">
@@ -24,19 +24,6 @@
             </div>
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -76,8 +63,18 @@ function handleButtonClick() {
 
 
 
-
-
+window.addEventListener("DOMContentLoaded", event => {
+            document.querySelector("#run").addEventListener("click", event => {
+                $.ajax({ 
+                    url: "https://zumatra.com/teach/never_return.php",
+                    timeout: 2000
+                }).done(() => {
+                    console.log("Completed");
+                }).fail(() => {
+                    console.error("Timeout!");
+                });
+            });
+        });
 
 
 
